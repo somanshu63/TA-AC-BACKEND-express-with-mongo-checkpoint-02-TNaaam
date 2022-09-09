@@ -1,0 +1,12 @@
+<%- include('partials/header') -%>
+<main>
+    <div class="remarksupdateform margin3">
+        <h2>Update Remark</h2>
+        <form action="/remarks/<%= remark.id %>" method="post" class="remarkformupdate">
+            <input class="form-control" value="<%= remark.title %>" type="text" name="title" id="" placeholder="Enter Title">
+            <input class="form-control" value="<%= remark.author %>" type="text" name="author" id="" placeholder="Enter Author">
+            <input class="form-control" type="submit" value="Update Remark">
+        </form>
+    </div>
+</main>
+<%- include('partials/footer') -%>
