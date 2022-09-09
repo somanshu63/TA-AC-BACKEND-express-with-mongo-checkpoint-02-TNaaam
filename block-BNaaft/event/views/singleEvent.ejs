@@ -1,0 +1,45 @@
+<%- include('partials/header') -%>
+<main>
+    <div class="singleevent margin3">
+        <h1><%= event.title %></h1>
+        <h3><%= event.host %></h3>
+        <p class="summary"><%= event.summary %></p>
+        <div class="flex justify-left">
+            <p class="date"><%= event.start_date %></p>
+            <p class="date"><%= event.end_date %></p>
+        </div>
+        <ul>
+            <% event.event_categories.forEach(c => { %>
+                <a href="/events/category/<%= c %>">
+                    <li><%= c %></li>
+                </a>
+            <% }) %>
+            <li><%= event.likes %></li>
+            <a class="btn-small btn-green" href="/events/<%= event.id %>/like">like</a>
+            <a class="btn-small btn-red" href="/events/<%= event.id %>/dislike">dislike</a>
+        </ul>
+        <address><%= event.location %></address>
+        <a class="btn-medium btn-blue" href="/events/<%= event.id %>/edit">edit event</a>
+        <a class="btn-medium btn-red" href="/events/<%= event.id %>/delete">delete event</a>
+        <div class="remarks">
+            <h3>Remarks</h3>
+            <form action="/events/<%= event.id %>/remarks" method="post">
+                <input class="form-control" type="text" name="title" id="" placeholder="Enter Title">
+                <input class="form-control" type="text" name="author" id="" placeholder="Enter Author">
+                <input class="form-control" type="submit" value="Add Remark">
+            </form>
+            <ul class="remarkslist">
+                <% event.remarks.forEach(r => { %>
+                    <p class="remarktitle"><%= r.title %></p>
+                    <h6><%= r.author %></h6>
+                    <li class="remarklikes"><%= r.likes %></li>
+                    <a class="btn-small btn-green" href="/remarks/<%= r.id %>/like">like</a>
+                    <a class="btn-small btn-red" href="/remarks/<%= r.id %>/dislike">dislike</a>
+                    <a class="btn-small btn-green" href="/remarks/<%= r.id %>/edit">Edit remark</a>
+                    <a class="btn-small btn-red" href="/remarks/<%= r.id %>/delete">delete remark</a>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</main>
+<%- include('partials/footer') -%>

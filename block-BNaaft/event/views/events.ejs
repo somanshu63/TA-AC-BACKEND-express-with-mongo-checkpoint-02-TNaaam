@@ -1,0 +1,59 @@
+<%- include('partials/header') -%>
+<main>
+    <div class="flex">
+        <aside class="aside">
+            <div>
+                <h4>Filter</h4>
+            </div>
+            <div class="options">
+                <a class="btn-medium btn-blue categoriesbtn" href="">by category</a>
+                <a class="btn-medium btn-blue start_datebtn" href="">by start date</a>
+                <a class="btn-medium btn-blue locationbtn" href="">by location</a>
+                <div class="categories">
+                    <ul>
+                        <% events.forEach(e => { %>
+                            <% e.event_categories.forEach(c => { %>
+                                <a href="/events/category/<%= c %>">
+                                    <li><%= c %></li>
+                                </a>
+                            <% }) %>
+                        <% }) %> 
+                    </ul>
+                </div>
+                <div class="dates">
+                    <ul>
+                        <% events.forEach(e => { %>
+                            <a href="/events/startdate/<%= e.start_date %>">
+                                <li><%= e.start_date %></li>
+                            </a>
+                        <% }) %> 
+                    </ul>
+                </div>
+                <div class="locations">
+                    <ul>
+                        <% events.forEach(e => { %>
+                            <a href="/events/location/<%= e.location %>">
+                                <li><%= e.location.split(",").pop() %></li>
+                            </a>
+                        <% }) %> 
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <div class="events margin3">
+            <h1>Events</h1>
+            <div class="flex eventslist space-evenly flexwrap">
+                <% events.forEach(e => { %>
+                    <div class="eventscontainer">
+                        <h3><%= e.title %></h3>
+                        <p><%= e.start_date %></p>
+                        <address><%= e.location.split(",").pop() %></address>
+                        <a href="/events/<%= e.id %>">view event details</a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</main>
+<%- include('partials/footer') -%>

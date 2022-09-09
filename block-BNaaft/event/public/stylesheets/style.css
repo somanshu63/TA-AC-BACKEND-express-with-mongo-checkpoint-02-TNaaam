@@ -1,0 +1,418 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+
+
+/* custom */
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+:root{
+  --dark-color: #010A19;
+  --light-blue-color: #7CD7EC;
+  --pink-color: #C495F2;
+  --green-color: #6DAF49;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+.flexwrap{
+  flex-wrap: wrap;
+}
+.justify-left{
+  justify-content: left;
+}
+.justify-right{
+  justify-content: right;
+}
+.align-center{
+  align-items: center;
+}
+.space-evenly{
+  justify-content: space-evenly;
+}
+.text-center{
+  text-align: center;
+}
+a{
+  text-decoration: none;
+  color: white;
+  text-transform: capitalize;
+}
+.margin3{
+  padding: 3rem;
+}
+.btn-big{
+  display: inline-block;
+  font-size: 20px;
+  padding: 8px 10px;
+  border: 4px solid;
+  border-radius: 6px;
+}
+.btn-medium{
+  display: inline-block;
+  font-size: 15px;
+  padding: 6px 8px;
+  border: 3px solid;
+  border-radius: 4px;
+}
+.btn-small{
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 6px;
+  border: 2px solid;
+  border-radius: 3px;
+}
+.btn-green{
+  background-color: rgb(1, 190, 1);
+  border-color: green;
+}
+.btn-blue{
+  background-color: rgb(82, 82, 236);
+  border-color: rgb(3, 3, 167);
+}
+.btn-red{
+  background-color: rgb(235, 63, 63);
+  border-color: rgb(177, 3, 3);
+}
+h1, h2, h3, h4, a, h5, h6{
+  text-transform: capitalize;
+}
+h1{
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 500;
+}
+h2{
+  font-size: 35px;
+}
+h3{
+  color: #ffffff;
+  font-size: 36px;
+}
+h4{
+  font-size: 25px;
+}
+h5{
+  font-size: 20px;
+}
+h6{
+  font-size: 15px;
+}
+.fS-24{
+  font-size: 24;
+}
+p, address, li{
+  font-size: 24px;
+}
+
+
+
+
+
+/* home page */
+.home{
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-image: url(../images/bg.jpeg);
+}
+.home h1{
+  font-size: 110px;
+  padding: 5rem 0 3rem 0;
+}
+.home p{
+  color: white;
+  display: inline-block;
+  line-height: 1.4;
+}
+.home p span{
+  font-size: 40px;
+  padding-top: 20px;
+}
+.home a{
+  color: white;
+  font-weight: 600;
+  margin-top: 3rem;
+  display: inline-block;
+  font-size: 30px;
+  border-radius: 30px;
+  border: 5px solid white;
+  padding: 12px;
+}
+.homegallery{
+  padding: 2rem 3rem;
+  text-align: center;
+  background: url(../images/gallerybg.jpg) no-repeat ;
+  background-size: cover;
+}
+.homegallery h2{
+  font-size: 80px;
+  font-weight: 500;
+  padding: 2rem;
+  color: blue;
+}
+.width1{
+  width: 500px;
+  height: 400px;
+  margin: 1rem;
+  border-radius: 10px;
+  border: 5px solid var(--dark-color);
+}
+.width2{
+  height: 600px;
+}
+.homegallery figure:nth-child(3), .homegallery figure:nth-child(7){
+  margin-top: -13rem;
+}
+.homegallery figure:nth-child(9){
+  margin-top: -25rem;
+}
+
+
+
+/* header */
+.header{
+  background-color: #010A19;
+  padding: 1rem;
+}
+.header a{
+  margin: 0 12px;
+}
+.header a:hover{
+  color: var(--light-blue-color);
+}
+.brand{
+  font-weight: 500;
+}
+
+
+
+
+/* footer */
+footer{
+  padding: 1rem;
+  background-color: #010A19;
+  color: white;
+  text-align: center;
+}
+
+
+
+
+
+/* events page */
+.events{
+  width: 75%;
+  background-size: cover;
+  background: url(../images/eventsbg.jpg) no-repeat;
+}
+.events h1{
+  margin: -1rem;
+}
+.eventslist{
+  margin-top: 2rem;
+}
+.eventscontainer{
+  width: 300px;
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 20px;
+  border: 4px solid white;
+}
+.eventscontainer h3{
+  margin: 1rem;
+  font-size: 30px;
+}
+.eventscontainer p{
+  margin: 1rem;
+  color: #6DAF49;
+  font-size: 28px;
+}
+.eventscontainer address{
+  font-size: 20px;
+  margin: 1rem;
+  color: #7CD7EC;
+}
+.eventscontainer a{
+  margin: 1rem;
+  color: #C495F2;
+  font-size: 26px;
+}
+.aside{
+  width: 25%;
+  background-color: lightcoral;
+}
+.aside h4{
+  color: #010A19;
+  text-align: center;
+  padding: 1rem;
+}
+.aside ul{
+  margin-top: 2rem;
+}
+.aside li{
+  list-style: none;
+  color: #010A19;
+  border: 2px solid #010A19;
+  border-radius: 4px;
+  padding: 6px 8px;
+  margin: 0.5rem 2rem;
+}
+
+
+
+
+/* event form */
+.eventform{
+  padding: 3rem 14rem;
+  background-image: url(../images/events-bg.jpg);
+  background-size: cover;
+}
+.eventform h1{
+  color: var(--dark-color);
+}
+.eventformdiv{
+  width: 400px;
+  margin: 1rem;
+}
+.form-control{
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+  border: 3px solid var(--dark-color);
+  border-radius: 5px;
+  margin: 0.5rem 0;
+}
+.form-control:focus{
+  border-color: #6DAF49;
+}
+
+
+
+
+
+
+/* single event */
+.singleevent{
+  background-image: url(../images/singleeventbg.jpg);
+}
+.singleevent h3{
+  color: orange;
+}
+.summary{
+  margin: 1rem 0;
+}
+.date{
+  color: var(--pink-color);
+  margin: 0.5rem 0;
+  margin-right: 3rem;
+}
+.singleevent li{
+  margin: 1rem 0;
+  color: var(--light-blue-color);
+}
+.singleevent address{
+  width: 500px;
+  font-size: 22px;
+  margin: 1rem 0;
+}
+.remarks{
+  width: 300px;
+  margin-top: 3rem;
+}
+.remarks .form-control{
+  padding: 2px;
+  width: 200px;
+  font-size: 15px;
+  border: 3px solid var(--dark-color);
+  border-radius: 4px;
+  margin: 2px 0;
+}
+.remarkslist{
+  margin-top: 2rem;
+}
+.remarktitle{
+  font-size: 22px;
+}
+.remarks h6{
+  font-size: 18px;
+  margin: 5px 0;
+  margin-bottom: -0.5rem;
+}
+.remarklikes{
+  font-size: 16px;
+  color: black;
+}
+
+
+
+/* remark update form */
+.remarksupdateform{
+  background-image: url(../images/events-bg.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+.remarksupdateform h2{
+  color: #010A19;
+  text-align: center;
+  margin: 2rem 0;
+}
+.remarkformupdate{
+  margin: 0 auto;
+  width: 200px;
+}
