@@ -256,8 +256,16 @@ footer{
 
 
 /* events page */
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 .events{
+  padding-top: 5rem;
   width: 75%;
+  margin-left: 25%;
   background-size: cover;
   background: url(../images/eventsbg.jpg) no-repeat;
 }
@@ -294,13 +302,17 @@ footer{
   font-size: 26px;
 }
 .aside{
+  position: fixed;
+  top: 47px;
+  left: 0;
+  bottom: 30px;
+  padding-top: 1rem;
   width: 25%;
   background-color: lightcoral;
 }
 .aside h4{
   color: #010A19;
   text-align: center;
-  padding: 1rem;
 }
 .aside ul{
   margin-top: 2rem;
@@ -312,6 +324,28 @@ footer{
   border-radius: 4px;
   padding: 6px 8px;
   margin: 0.5rem 2rem;
+}
+.categories, .locations, .dates{
+  margin: 2rem 1rem 0 3rem;
+}
+.form-label{
+  text-align: center;
+  margin-bottom: 5px;
+  color: white;
+  display: inline-block;
+  font-size: 22px;
+}
+.options{
+  margin-left: 1rem;
+}
+.filterbtn{
+  margin: 1rem 6rem;
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 
@@ -341,7 +375,10 @@ footer{
 .form-control:focus{
   border-color: #6DAF49;
 }
-
+.filter-form-control{
+  width: 80%;
+  margin: 5px auto;
+}
 
 
 

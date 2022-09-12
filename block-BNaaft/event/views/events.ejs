@@ -6,38 +6,31 @@
                 <h4>Filter</h4>
             </div>
             <div class="options">
-                <a class="btn-medium btn-blue categoriesbtn" href="">by category</a>
-                <a class="btn-medium btn-blue start_datebtn" href="">by start date</a>
-                <a class="btn-medium btn-blue locationbtn" href="">by location</a>
                 <div class="categories">
-                    <ul>
-                        <% events.forEach(e => { %>
-                            <% e.event_categories.forEach(c => { %>
-                                <a href="/events/category/<%= c %>">
-                                    <li><%= c %></li>
-                                </a>
-                            <% }) %>
-                        <% }) %> 
-                    </ul>
+                    <form action="/events" method="get">
+                        <fieldset>
+                            <label class="form-label" for="categories">Select Category</label>
+                            <select class="filter-form-control form-control" name="category" id="categories">
+                                <option value="">select category</option>
+                                <% categories.forEach(e => { %>
+                                    <option value="<%= e %>"><%= e %></option>
+                                <% }) %> 
+                            </select>
+                            <label class="form-label" for="date">Select Dates</label>
+                            <input class="filter-form-control form-control" type="date" name="start_date" id="">
+                            <input class="filter-form-control form-control" type="date" name="end_date" id="">
+                            <label class="form-label" for="location">Select Location</label>
+                            <select class="filter-form-control form-control" name="location" id="location">
+                                <option value="">select location</option>
+                                <% locations.forEach(e => { %>
+                                    <option value="<%= e %>"><%= e %></option>
+                                <% }) %> 
+                            </select>
+                            <input class="filter-form-control form-control" type="submit" value="Apply filters">
+                        </fieldset>
+                    </form>
                 </div>
-                <div class="dates">
-                    <ul>
-                        <% events.forEach(e => { %>
-                            <a href="/events/startdate/<%= e.start_date %>">
-                                <li><%= e.start_date %></li>
-                            </a>
-                        <% }) %> 
-                    </ul>
-                </div>
-                <div class="locations">
-                    <ul>
-                        <% events.forEach(e => { %>
-                            <a href="/events/location/<%= e.location %>">
-                                <li><%= e.location.split(",").pop() %></li>
-                            </a>
-                        <% }) %> 
-                    </ul>
-                </div>
+                <a class="btn-medium btn-blue filterbtn" href="/events">clear filter</a>
             </div>
         </aside>
         <div class="events margin3">

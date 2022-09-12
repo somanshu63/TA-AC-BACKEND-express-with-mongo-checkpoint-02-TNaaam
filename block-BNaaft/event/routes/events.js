@@ -5,9 +5,28 @@ var Remark = require('../models/remark')
 
 /* get events */
 router.get('/', function(req, res, next) {
-  Event.find({}, (err, events) => {
+  var query = {};
+  var {category, location, start_date, end_date} = req.query;
+  if(category){
+    query.event_categories = category
+  }
+  if(location){
+    query.location = location
+  }
+  if(start_date && end_date){
+    query.start_date = {$gte: start_date},
+    query.end_date = {$lte: end_date}
+  }
+  console.log(category, location, start_date, end_date)
+  Event.distinct('event_categories').exec((err, categories) => {
     if(err) return next(err);
-    res.render('events', {events});
+    Event.distinct('location').exec((err, locations) => {
+      if(err) return next(err);
+        Event.find(query, (err, events) => {
+          if(err) return next(err);
+          res.render('events', {events, categories, locations});
+        });
+    });
   });
 });
 
@@ -92,32 +111,6 @@ router.get('/:id/delete', (req, res, next) => {
   });
 });
 
-//get based on categories
-router.get('/category/:c', (req, res, next) => {
-  var category = req.params.c;
-  Event.find({event_categories: category}, (err, events) => {
-    if (err) return next(err);
-    res.render('events', {events})
-  });
-});
-
-//get based on start date
-router.get('/startdate/:e', (req, res, next) => {
-  var startDate = req.params.e;
-  Event.find({start_date: startDate}, (err, events) => {
-    if (err) return next(err);
-    res.render('events', {events})
-  });
-});
-
-//get based on location
-router.get('/location/:e', (req, res, next) => {
-  var location = req.params.e;
-  Event.find({location: location}, (err, events) => {
-    if (err) return next(err);
-    res.render('events', {events})
-  });
-});
 
 
 //save remark
