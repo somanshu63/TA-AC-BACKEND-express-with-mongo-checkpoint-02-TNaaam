@@ -1,0 +1,25 @@
+<%- include('partials/header') -%>
+<main>
+    <div class="eventform margin3">
+        <h1>Add Event</h1>
+        <form action="/events" method="post">
+            <fieldset>
+                <div class="flex">
+                    <div class="eventformdiv">
+                        <input type="text" class="form-control" name="title" id="" placeholder="Enter Title">
+                        <textarea class="form-control" name="summary" id="" cols="" rows="5" placeholder="Enter Summary"></textarea>
+                        <input type="text" class="form-control" name="host" id="" placeholder="Enter Host">
+                        <input type="date" class="form-control" name="start_date" id="" placeholder="Enter Start Date">
+                    </div>
+                    <div class="eventformdiv">
+                        <input type="date" class="form-control" name="end_date" id="" placeholder="Enter End Date">
+                        <input type="text" class="form-control" name="event_categories" id="" placeholder="Enter Categories">
+                        <textarea class="form-control" name="location" id="" cols="" rows="5" placeholder="Enter Location"></textarea>
+                        <input class="form-control" type="submit" value="Add Event">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</main>
+<%- include('partials/footer') -%>

@@ -1,0 +1,52 @@
+<%- include('partials/header') -%>
+<main>
+    <div class="flex">
+        <aside class="aside">
+            <div>
+                <h4>Filter</h4>
+            </div>
+            <div class="options">
+                <div class="categories">
+                    <form action="/events" method="get">
+                        <fieldset>
+                            <label class="form-label" for="categories">Select Category</label>
+                            <select class="filter-form-control form-control" name="category" id="categories">
+                                <option value="">select category</option>
+                                <% categories.forEach(e => { %>
+                                    <option value="<%= e %>"><%= e %></option>
+                                <% }) %> 
+                            </select>
+                            <label class="form-label" for="date">Select Dates</label>
+                            <input class="filter-form-control form-control" type="date" name="start_date" id="">
+                            <input class="filter-form-control form-control" type="date" name="end_date" id="">
+                            <label class="form-label" for="location">Select Location</label>
+                            <select class="filter-form-control form-control" name="location" id="location">
+                                <option value="">select location</option>
+                                <% locations.forEach(e => { %>
+                                    <option value="<%= e %>"><%= e %></option>
+                                <% }) %> 
+                            </select>
+                            <input class="filter-form-control form-control" type="submit" value="Apply filters">
+                        </fieldset>
+                    </form>
+                </div>
+                <a class="btn-medium btn-blue filterbtn" href="/events">clear filter</a>
+            </div>
+        </aside>
+        <div class="events margin3">
+            <h1>Events</h1>
+            <div class="flex eventslist space-evenly flexwrap">
+                <% events.forEach(e => { %>
+                    <div class="eventscontainer">
+                        <h3><%= e.title %></h3>
+                        <p><%= e.start_date %></p>
+                        <address><%= e.location.split(",").pop() %></address>
+                        <a href="/events/<%= e.id %>">view event details</a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+</main>
+<%- include('partials/footer') -%>
